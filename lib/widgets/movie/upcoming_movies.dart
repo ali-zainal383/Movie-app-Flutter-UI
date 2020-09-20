@@ -1,27 +1,27 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:movie_app/bloc/get_latest_movies.bloc.dart';
+import 'package:movie_app/bloc/get_upcoming_movies.bloc.dart';
 import 'package:movie_app/models/movie.dart';
 import 'package:movie_app/models/movie_response.dart';
 import 'package:movie_app/style/theme.dart' as Style;
 
-class LatestMovies extends StatefulWidget {
+class UpComingMovies extends StatefulWidget {
   @override
-  _LatestMoviesState createState() => _LatestMoviesState();
+  _UpComingMoviesState createState() => _UpComingMoviesState();
 }
 
-class _LatestMoviesState extends State<LatestMovies> {
+class _UpComingMoviesState extends State<UpComingMovies> {
   @override
   void initState() {
     super.initState();
-    latestMoviesBloc..getLatest();
+    upcomingMoviesBloc..getUpComing();
   }
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<MovieResponse>(
-      stream: latestMoviesBloc.subject.stream,
+      stream: upcomingMoviesBloc.subject.stream,
       builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
         if (snapshot.hasData) {
           if (snapshot.data.error != null && snapshot.data.error.length > 0) {

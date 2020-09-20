@@ -2,13 +2,13 @@ import 'package:movie_app/models/movie_response.dart';
 import 'package:movie_app/repository/repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-class LatestMoviesListBloc {
+class UpComingMoviesListBloc {
   final Repository _repository = Repository();
   final BehaviorSubject<MovieResponse> _subject =
       BehaviorSubject<MovieResponse>();
 
-  getLatest() async {
-    MovieResponse response = await _repository.getLatestMovies();
+  getUpComing() async {
+    MovieResponse response = await _repository.getUpComingMovies();
     _subject.sink.add(response);
   }
 
@@ -19,4 +19,4 @@ class LatestMoviesListBloc {
   BehaviorSubject<MovieResponse> get subject => _subject;
 }
 
-final latestMoviesBloc = LatestMoviesListBloc();
+final upcomingMoviesBloc = UpComingMoviesListBloc();

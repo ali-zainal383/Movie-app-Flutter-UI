@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/movie/now_playing_movies.dart';
 import 'package:movie_app/widgets/movie/popular_movies.dart';
 import 'package:movie_app/widgets/movie/top_movies.dart';
+import 'package:movie_app/widgets/movie/upcoming_movies.dart';
 
 class MovieScreen extends StatefulWidget {
   @override
@@ -70,7 +71,7 @@ class _MovieScreenState extends State<MovieScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Latest Movie",
+                "Upcoming",
                 style: TextStyle(
                   color: Colors.black45,
                   fontWeight: FontWeight.bold,
@@ -88,6 +89,7 @@ class _MovieScreenState extends State<MovieScreen> {
             ],
           ),
         ),
+        UpComingMovies()
       ],
     );
   }

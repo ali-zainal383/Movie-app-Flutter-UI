@@ -18,13 +18,12 @@ class Repository {
   var getNowPlayingMoviesUrl = '$mainUrl/movie/now_playing';
   var getPopularMoviesUrl = '$mainUrl/movie/popular';
   var getTopRatedMoviesUrl = '$mainUrl/movie/top_rated';
-  var getLatestMoviesUrl = '$mainUrl/movie/latest';
+  var getUpComingMoviesUrl = '$mainUrl/movie/upcoming';
 
   var tvUrl = '$mainUrl/tv';
   var getAirTodayTvUrl = '$mainUrl/tv/airing_today';
   var getPopularTvUrl = '$mainUrl/tv/popular';
   var getTopRatedTvUrl = '$mainUrl/tv/top_rated';
-  var getLatestTvUrl = '$mainUrl/tv/latest';
 
   Future<MovieResponse> getDiscoverMovies() async {
     var params = {
@@ -90,15 +89,14 @@ class Repository {
     }
   }
 
-  Future<MovieResponse> getLatestMovies() async {
+  Future<MovieResponse> getUpComingMovies() async {
     var params = {
       "api_key": apiKey,
       "language": "en-US",
-      "page": 1,
     };
     try {
       Response response =
-          await _dio.get(getLatestMoviesUrl, queryParameters: params);
+          await _dio.get(getUpComingMoviesUrl, queryParameters: params);
       return MovieResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception occured: $error stacktrace: $stacktrace");
@@ -178,22 +176,6 @@ class Repository {
     try {
       Response response =
           await _dio.get(getTopRatedTvUrl, queryParameters: params);
-      return TvResponse.fromJson(response.data);
-    } catch (error, stacktrace) {
-      print("Exception occured: $error stacktrace: $stacktrace");
-      return TvResponse.withError("$error");
-    }
-  }
-
-  Future<TvResponse> getLatestTv() async {
-    var params = {
-      "api_key": apiKey,
-      "language": "en-US",
-      "page": 1,
-    };
-    try {
-      Response response =
-          await _dio.get(getLatestTvUrl, queryParameters: params);
       return TvResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception occured: $error stacktrace: $stacktrace");
