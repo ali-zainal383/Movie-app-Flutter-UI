@@ -3,7 +3,6 @@ import 'package:movie_app/bloc/bottom_navbar_bloc.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:movie_app/style/theme.dart' as Style;
 
-import 'tabs/home_screen.dart';
 import 'tabs/movie_screen.dart';
 import 'tabs/tv_screen.dart';
 
@@ -32,8 +31,8 @@ class _MainScreenState extends State<MainScreen> {
           //ignore: missing_return
           builder: (BuildContext context, AsyncSnapshot<NavbarItems> snapshot) {
             switch (snapshot.data) {
-              case NavbarItems.HOME:
-                return HomeScreen();
+              // case NavbarItems.HOME:
+              //   return HomeScreen();
               case NavbarItems.MOVIE:
                 return MovieScreen();
               case NavbarItems.TV:
@@ -55,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey[100],
+                  color: Colors.grey[400],
                   spreadRadius: 0,
                   blurRadius: 10.0,
                 ),
@@ -77,14 +76,14 @@ class _MainScreenState extends State<MainScreen> {
                 currentIndex: snapshot.data.index,
                 onTap: _bottomNavbarBloc.pickItem,
                 items: [
-                  BottomNavigationBarItem(
-                    title: Padding(
-                      padding: EdgeInsets.only(top: 5.0),
-                      child: Text("Home"),
-                    ),
-                    icon: Icon(EvaIcons.homeOutline),
-                    activeIcon: Icon(EvaIcons.home),
-                  ),
+                  // BottomNavigationBarItem(
+                  //   title: Padding(
+                  //     padding: EdgeInsets.only(top: 5.0),
+                  //     child: Text("Home"),
+                  //   ),
+                  //   icon: Icon(EvaIcons.homeOutline),
+                  //   activeIcon: Icon(EvaIcons.home),
+                  // ),
                   BottomNavigationBarItem(
                     title: Padding(
                       padding: EdgeInsets.only(top: 5.0),
@@ -122,7 +121,7 @@ class _MainScreenState extends State<MainScreen> {
         onPressed: () {},
       ),
       title: Text(
-        "Movie & Tv",
+        "Movie",
         style: TextStyle(
           color: Colors.white,
           fontSize: 20,

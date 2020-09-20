@@ -19,4 +19,4 @@ class LatestMoviesListBloc {
   BehaviorSubject<MovieResponse> get subject => _subject;
 }
 
-final latestBloc = LatestMoviesListBloc();
+final latestMoviesBloc = LatestMoviesListBloc();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/widgets/home/now_playing_movies.dart';
-import 'package:movie_app/widgets/home/top_movies.dart';
-import 'package:movie_app/widgets/home/top_tv.dart';
+// import 'package:movie_app/widgets/home/now_playing_movies.dart';
+// import 'package:movie_app/widgets/home/top_movies.dart';
+// import 'package:movie_app/widgets/home/top_tv.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        NowPlayingMovies(),
+        //NowPlayingMovies(),
         Padding(
           padding: EdgeInsets.all(10.0),
           child: Row(
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-        TopMovies(),
+        //TopMovies(),
         Padding(
           padding: EdgeInsets.all(10.0),
           child: Row(
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-        TopTv(),
+        //TopTv(),
       ],
     );
   }
