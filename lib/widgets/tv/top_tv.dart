@@ -1,7 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:movie_app/bloc/get_top_tv_shows_bloc.dart';
+import 'package:movie_app/bloc/tv/get_top_tv_shows_bloc.dart';
 import 'package:movie_app/models/tv.dart';
 import 'package:movie_app/models/tv_response.dart';
 import 'package:movie_app/style/theme.dart' as Style;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:movie_app/bloc/get_playing_movies_bloc.dart';
+import 'package:movie_app/bloc/movie/get_playing_movies_bloc.dart';
 import 'package:movie_app/models/movie.dart';
 import 'package:movie_app/models/movie_response.dart';
 import 'package:page_indicator/page_indicator.dart';
