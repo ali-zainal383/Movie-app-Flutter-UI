@@ -1,5 +1,8 @@
 # Movie App :
 Application catalogue about Movie and Tv Show  
 
-# Data Source :
-- [The Movie DB](https://www.themoviedb.org/)
+## Data Source
+
+This app using the movie db api
+
+- [The Movie DB](https://themoviedb.org)

@@ -15,7 +15,7 @@ class PopularTvShowsListBloc {
     _subject.close();
   }
 
-  BehaviorSubject<TvResponse> get subjcet => _subject;
+  BehaviorSubject<TvResponse> get subject => _subject;
 }
 
 final popularTvShowBloc = PopularTvShowsListBloc();

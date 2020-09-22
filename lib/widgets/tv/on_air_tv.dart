@@ -1,33 +1,33 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:movie_app/bloc/get_top_movies_bloc.dart';
-import 'package:movie_app/models/movie.dart';
-import 'package:movie_app/models/movie_response.dart';
+import 'package:movie_app/bloc/tv/get_on_air_tv_bloc.dart';
+import 'package:movie_app/models/tv.dart';
+import 'package:movie_app/models/tv_response.dart';
 import 'package:movie_app/style/theme.dart' as Style;
 
-class TopMovies extends StatefulWidget {
+class OnAirTvShow extends StatefulWidget {
   @override
-  _TopMoviesState createState() => _TopMoviesState();
+  _OnAirTvShowState createState() => _OnAirTvShowState();
 }
 
-class _TopMoviesState extends State<TopMovies> {
+class _OnAirTvShowState extends State<OnAirTvShow> {
   @override
   void initState() {
     super.initState();
-    topMoviesBloc..getTopMovies();
+    onAirTvShowBloc..getOnAirTvShows();
   }
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<MovieResponse>(
-      stream: topMoviesBloc.subject.stream,
-      builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
+    return StreamBuilder<TvResponse>(
+      stream: onAirTvShowBloc.subject.stream,
+      builder: (context, AsyncSnapshot<TvResponse> snapshot) {
         if (snapshot.hasData) {
           if (snapshot.data.error != null && snapshot.data.error.length > 0) {
             return _buildErrorWidget(snapshot.data.error);
           }
-          return _buildTopMoviesWidget(snapshot.data);
+          return _buildOnAirListWidget(snapshot.data);
         } else if (snapshot.hasError) {
           return _buildErrorWidget(snapshot.error);
         } else {
@@ -67,9 +67,9 @@ class _TopMoviesState extends State<TopMovies> {
     );
   }
 
-  Widget _buildTopMoviesWidget(MovieResponse data) {
-    List<Movie> movies = data.movies;
-    if (movies.length == 0) {
+  Widget _buildOnAirListWidget(TvResponse data) {
+    List<Tv> tvShows = data.tvShows;
+    if (tvShows.length == 0) {
       return Container(
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -77,7 +77,7 @@ class _TopMoviesState extends State<TopMovies> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "No Top Movies List",
+              "No Top Tv Shows List",
             ),
           ],
         ),
@@ -88,13 +88,13 @@ class _TopMoviesState extends State<TopMovies> {
         padding: EdgeInsets.only(left: 10.0),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: movies.length,
+          itemCount: tvShows.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: EdgeInsets.only(bottom: 10.0, right: 10.0),
               child: Column(
                 children: [
-                  movies[index].poster == null
+                  tvShows[index].poster == null
                       ? Container(
                           width: 120.0,
                           height: 180.0,
@@ -128,7 +128,7 @@ class _TopMoviesState extends State<TopMovies> {
                             image: DecorationImage(
                               image: NetworkImage(
                                   "https://image.tmdb.org/t/p/w200/" +
-                                      movies[index].poster),
+                                      tvShows[index].poster),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -139,7 +139,7 @@ class _TopMoviesState extends State<TopMovies> {
                   Container(
                     width: 100.0,
                     child: Text(
-                      movies[index].title,
+                      tvShows[index].title,
                       maxLines: 2,
                       style: TextStyle(
                         height: 1.4,
@@ -155,7 +155,7 @@ class _TopMoviesState extends State<TopMovies> {
                   Row(
                     children: [
                       Text(
-                        movies[index].rating.toString(),
+                        tvShows[index].rating.toString(),
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 10.0,
@@ -167,7 +167,7 @@ class _TopMoviesState extends State<TopMovies> {
                       ),
                       RatingBar(
                         itemSize: 8.0,
-                        initialRating: movies[index].rating / 2,
+                        initialRating: tvShows[index].rating / 2,
                         minRating: 1,
                         direction: Axis.horizontal,
                         allowHalfRating: true,

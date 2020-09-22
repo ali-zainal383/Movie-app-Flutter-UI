@@ -1,33 +1,33 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:movie_app/bloc/get_top_tv_shows_bloc.dart';
+import 'package:movie_app/bloc/tv/get_popular_tv_bloc.dart';
 import 'package:movie_app/models/tv.dart';
 import 'package:movie_app/models/tv_response.dart';
 import 'package:movie_app/style/theme.dart' as Style;
 
-class TopTv extends StatefulWidget {
+class PopularTv extends StatefulWidget {
   @override
-  _TopTvState createState() => _TopTvState();
+  _PopularTvState createState() => _PopularTvState();
 }
 
-class _TopTvState extends State<TopTv> {
+class _PopularTvState extends State<PopularTv> {
   @override
   void initState() {
     super.initState();
-    topTvShowsBloc..getTopTvShows();
+    popularTvShowBloc..getPopularTvShows();
   }
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<TvResponse>(
-      stream: topTvShowsBloc.subject.stream,
+      stream: popularTvShowBloc.subject.stream,
       builder: (context, AsyncSnapshot<TvResponse> snapshot) {
         if (snapshot.hasData) {
           if (snapshot.data.error != null && snapshot.data.error.length > 0) {
             return _buildErrorWidget(snapshot.data.error);
           }
-          return _buildTopTvShowsWidget(snapshot.data);
+          return _buildPopularTvShowsWidget(snapshot.data);
         } else if (snapshot.hasError) {
           return _buildErrorWidget(snapshot.error);
         } else {
@@ -67,7 +67,7 @@ class _TopTvState extends State<TopTv> {
     );
   }
 
-  Widget _buildTopTvShowsWidget(TvResponse data) {
+  Widget _buildPopularTvShowsWidget(TvResponse data) {
     List<Tv> tvShows = data.tvShows;
     if (tvShows.length == 0) {
       return Container(
