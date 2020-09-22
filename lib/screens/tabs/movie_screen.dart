@@ -16,7 +16,8 @@ class _MovieScreenState extends State<MovieScreen> {
       children: [
         NowPlayingMovies(),
         Padding(
-          padding: EdgeInsets.all(10.0),
+          padding:
+              EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0, top: 10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -28,12 +29,15 @@ class _MovieScreenState extends State<MovieScreen> {
                   fontSize: 16.0,
                 ),
               ),
-              Text(
-                "View All",
-                style: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 9.0,
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  "View All",
+                  style: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10.0,
+                  ),
                 ),
               ),
             ],
@@ -41,7 +45,7 @@ class _MovieScreenState extends State<MovieScreen> {
         ),
         TopMovies(),
         Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -53,12 +57,15 @@ class _MovieScreenState extends State<MovieScreen> {
                   fontSize: 16.0,
                 ),
               ),
-              Text(
-                "View All",
-                style: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 9.0,
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  "View All",
+                  style: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10.0,
+                  ),
                 ),
               ),
             ],
@@ -66,7 +73,7 @@ class _MovieScreenState extends State<MovieScreen> {
         ),
         PopularMovies(),
         Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -78,12 +85,15 @@ class _MovieScreenState extends State<MovieScreen> {
                   fontSize: 16.0,
                 ),
               ),
-              Text(
-                "View All",
-                style: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 9.0,
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  "View All",
+                  style: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10.0,
+                  ),
                 ),
               ),
             ],

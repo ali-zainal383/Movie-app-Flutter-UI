@@ -2,12 +2,12 @@ import 'package:movie_app/models/tv_response.dart';
 import 'package:movie_app/repository/repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-class PopularTvShowsListBloc {
+class OnAirTvListBloc {
   final Repository _repository = Repository();
   final BehaviorSubject<TvResponse> _subject = BehaviorSubject<TvResponse>();
 
-  getPopularTvShows() async {
-    TvResponse response = await _repository.getPopularTv();
+  getOnAirTvShows() async {
+    TvResponse response = await _repository.getOnAirTv();
     _subject.sink.add(response);
   }
 
@@ -18,4 +18,4 @@ class PopularTvShowsListBloc {
   BehaviorSubject<TvResponse> get subject => _subject;
 }
 
-final popularTvShowBloc = PopularTvShowsListBloc();
+final onAirTvShowBloc = OnAirTvListBloc();

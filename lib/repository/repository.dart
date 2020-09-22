@@ -24,6 +24,7 @@ class Repository {
   var getAirTodayTvUrl = '$mainUrl/tv/airing_today';
   var getPopularTvUrl = '$mainUrl/tv/popular';
   var getTopRatedTvUrl = '$mainUrl/tv/top_rated';
+  var getOnAirTvUrl = '$mainUrl/tv/on_the_air';
 
   Future<MovieResponse> getDiscoverMovies() async {
     var params = {
@@ -176,6 +177,22 @@ class Repository {
     try {
       Response response =
           await _dio.get(getTopRatedTvUrl, queryParameters: params);
+      return TvResponse.fromJson(response.data);
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stacktrace: $stacktrace");
+      return TvResponse.withError("$error");
+    }
+  }
+
+  Future<TvResponse> getOnAirTv() async {
+    var params = {
+      "api_key": apiKey,
+      "language": "en-US",
+      "page": 1,
+    };
+    try {
+      Response response =
+          await _dio.get(getOnAirTvUrl, queryParameters: params);
       return TvResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception occured: $error stacktrace: $stacktrace");

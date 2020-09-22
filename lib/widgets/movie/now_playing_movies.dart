@@ -82,7 +82,7 @@ class _NowPlayingMoviesState extends State<NowPlayingMovies> {
       );
     } else {
       return Container(
-        height: 210,
+        height: 210.0,
         child: PageIndicatorContainer(
           align: IndicatorAlign.bottom,
           indicatorSpace: 8.0,
