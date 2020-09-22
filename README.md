@@ -1,6 +1,5 @@
-# movie_app
-
-Application catalogue about Movie and Tv Show
+# Movie App :
+Application catalogue about Movie and Tv Show  
 
 ## Data Source
 
