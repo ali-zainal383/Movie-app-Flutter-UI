@@ -1,9 +1,9 @@
 import 'package:movie_app/models/tv_response.dart';
-import 'package:movie_app/repository/repository.dart';
+import 'package:movie_app/repository/tv_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class PopularTvShowsListBloc {
-  final Repository _repository = Repository();
+  final TvRepository _repository = TvRepository();
   final BehaviorSubject<TvResponse> _subject = BehaviorSubject<TvResponse>();
 
   getPopularTvShows() async {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie_detail_response.dart';
-import 'package:movie_app/repository/repository.dart';
+import 'package:movie_app/repository/movie_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MovieDetailBloc {
-  final Repository _repository = Repository();
+  final MovieRepository _repository = MovieRepository();
   final BehaviorSubject<MovieDetailResponse> _subject =
       BehaviorSubject<MovieDetailResponse>();
 

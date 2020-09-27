@@ -1,9 +1,9 @@
 import 'package:movie_app/models/movie_response.dart';
-import 'package:movie_app/repository/repository.dart';
+import 'package:movie_app/repository/movie_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class TopMoviesListBloc {
-  final Repository _repository = Repository();
+  final MovieRepository _repository = MovieRepository();
   final BehaviorSubject<MovieResponse> _subject =
       BehaviorSubject<MovieResponse>();
 
