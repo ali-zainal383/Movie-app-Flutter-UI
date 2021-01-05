@@ -85,18 +85,12 @@ class _MainScreenState extends State<MainScreen> {
                   //   activeIcon: Icon(EvaIcons.home),
                   // ),
                   BottomNavigationBarItem(
-                    title: Padding(
-                      padding: EdgeInsets.only(top: 5.0),
-                      child: Text("Movie"),
-                    ),
+                    label: "Movie",
                     icon: Icon(EvaIcons.filmOutline),
                     activeIcon: Icon(EvaIcons.film),
                   ),
                   BottomNavigationBarItem(
-                    title: Padding(
-                      padding: EdgeInsets.only(top: 5.0),
-                      child: Text("Tv"),
-                    ),
+                    label: "Tv Show",
                     icon: Icon(EvaIcons.tvOutline),
                     activeIcon: Icon(EvaIcons.tv),
                   ),
